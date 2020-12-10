@@ -16,4 +16,9 @@ Clone this repository, go to the project root, and run:
 Wait for the dependencies installation, docker images download, and builds. At the first time, maybe take some minutes.
 After the script finish, the application is ready at `http://localhost:5000/`
 
+#### To stop the application enter:
+```
+./manage.py compose down
+```
+
 ##### [See the endpoints](https://documenter.getpostman.com/view/13814016/TVmV4ssW)
