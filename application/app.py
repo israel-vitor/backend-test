@@ -43,7 +43,7 @@ def create_app():
             db.session.add(new_workflow)
             db.session.commit()
 
-            connection = pika.BlockingConnection(pika.ConnectionParameters(host='development_rabbitmq_1'))
+            connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
             channel = connection.channel()
             channel.queue_declare(queue='workflow_queue', durable=True)
             channel.basic_publish(
@@ -95,7 +95,7 @@ def create_app():
             return {"error": f"The fields {invalid_format_fields} are invalid"}, 400
 
         if 'data' in data.keys() or 'steps' in data.keys():
-            return {"error": f"You can only update the workflow status"}, 400
+            return {"error": f"You can update only the workflow status"}, 400
 
         workflow.status = data['status']
 
@@ -107,7 +107,7 @@ def create_app():
     @app.route('/workflows/consume', methods=['GET'])
     def update_workflows():
 
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host='development_rabbitmq_1'))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
         channel = connection.channel()
         channel.queue_declare(queue='workflow_queue', durable=True)
 

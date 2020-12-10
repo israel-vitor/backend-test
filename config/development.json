@@ -17,7 +17,7 @@
   },
   {
     "name": "POSTGRES_HOSTNAME",
-    "value": "development_db_1"
+    "value": "localhost"
   },
   {
     "name": "POSTGRES_PORT",
