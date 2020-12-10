@@ -16,7 +16,7 @@ services:
 
   web:
     build:
-      context: ${PWD}
+      context: ../
       dockerfile: docker/Dockerfile
     environment:
       FLASK_ENV: ${FLASK_ENV}
@@ -28,7 +28,7 @@ services:
       POSTGRES_PORT: ${POSTGRES_PORT}
     command: flask run --host 0.0.0.0
     volumes:
-      - ${PWD}:/opt/code
+      - ../:/opt/code
     ports:
       - "5000:5000"
 
