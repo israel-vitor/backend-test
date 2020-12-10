@@ -11,7 +11,7 @@ Workflow's REST API developed as a backend test for Nuveo
 Before inialize the process, make sure that there is no Postgresql running on 
 Clone this repository, go to the project root and run:
 ```
-./prepare_application.sh
+./run_application.sh
 ```
 Wait for the dependencies installation, docker images download and builds. At the first time, maybe take some minutes.
 After the script finish, the application is ready at `http://localhost:5000/`
