@@ -43,7 +43,7 @@ def create_app():
             db.session.add(new_workflow)
             db.session.commit()
 
-            connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+            connection = pika.BlockingConnection(pika.ConnectionParameters(host='development_rabbitmq_1'))
             channel = connection.channel()
             channel.queue_declare(queue='workflow_queue', durable=True)
             channel.basic_publish(
@@ -107,7 +107,7 @@ def create_app():
     @app.route('/workflows/consume', methods=['GET'])
     def update_workflows():
 
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host='development_rabbitmq_1'))
         channel = connection.channel()
         channel.queue_declare(queue='workflow_queue', durable=True)
 
