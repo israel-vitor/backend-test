@@ -1,31 +1,19 @@
-# Backend Test
+# Nuveo Backend Test
 
-Develop the workflow's REST API following the specification bellow and document it.
+Workflow's REST API developed as a backend test for Nuveo
 
-## Delivery instructions
+#### Requirements
+- [Docker](https://www.docker.com/get-started)
+- [Python](https://www.python.org/downloads/)
 
-Clone this project and push a private repository in the [GitHub](https://github.com/), [Gitlab](https://about.gitlab.com/) or [Bitbucket](https://bitbucket.org/). When you want to our review, write any information that you think important in the README.md and send an email to talentos@nuveo.ai. We'll follow your instructions to run your code and look the outcome. 
+#### To run the application
 
-## Defining a workflow
+Before inialize the process, make sure that there is no Postgresql running on 
+Clone this repository, go to the project root and run:
+```
+./prepare_application.sh
+```
+Wait for the dependencies installation, docker images download and builds. At the first time, maybe take some minutes.
+After the script finish, the application is ready at `http://localhost:5000/`
 
-|Name|Type|Description|
-|-|-|-|
-|UUID|UUID|workflow unique identifier|
-|status|Enum(inserted, consumed)|workflow status|
-|data|JSONB|workflow input|
-|steps|Array|name of workflow steps
-
-## Endpoints
-
-|Verb|URL|Description|
-|-|-|-|
-|POST|/workflow|insert a workflow on database and on queue and respond request with the inserted workflow|
-|PATCH|/workflow/{UUID}|update status from specific workflow|
-|GET|/workflow|list all workflows|
-|GET|/workflow/consume|consume a workflow from queue and generate a CSV file with workflow.Data|
-
-## Technologies
-
-- Go, C, C++, Python, Java or any other that you know
-- PostgreSQL
-- A message queue that you choose, but describe why you choose.
+##### [See the endpoints](https://documenter.getpostman.com/view/13814016/TVmV4ssW)
