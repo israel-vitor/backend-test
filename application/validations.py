@@ -15,7 +15,7 @@ def validate_body_structure(body: Dict[str, Any]) -> Tuple[List[str], List[str]]
     :rtype: Tuple[bool, List[str], List[str]]
     """
     workflow_structure = WorkflowModel.__dict__
-    workflow_fields = [field for field in workflow_structure.keys() if '_' not in field]
+    workflow_fields = [field for field in workflow_structure.keys() if '_' not in field and 'UUID' not in field]
 
     body_fields = body.keys()
 
