@@ -14,7 +14,7 @@ Clone this repository, go to the project root, and run:
 ./run_application.sh
 ```
 Wait for the dependencies installation, docker images download, and builds. At the first time, maybe take some minutes.
-After the script finish, the application is ready at `http://localhost:5000/`
+After the script finish, the application is ready at `http://localhost:5000/`. If necessary, run the command above again.
 
 #### To stop the application enter:
 ```
